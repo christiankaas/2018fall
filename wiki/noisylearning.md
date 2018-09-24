@@ -223,11 +223,11 @@ In other words, we hope the **empirical risk estimates the out of sample risk we
 
 ## Why go out-of-sample
 
-Clearly we want tolearn something about a population, a population we dont have access to. So far we have stayed within the constraints of our sample and just like we did in the case of monte-carlo, might want to draw all our conclusions from this sample.
+Clearly we want to learn something about a population, a population we dont have access to. So far we have stayed within the constraints of our sample and just like we did in the case of monte-carlo, might want to draw all our conclusions from this sample.
 
 This is a bad idea.
 
-You probably noticed that I used weasel words like "might" and "hope" in the last section when saying that representative sampling in both training and test sets combined with ERM is what we need to learn a model. Let me give you a very simple counterexample: a prefect memorizer.
+You probably noticed that I used weasel words like "might" and "hope" in the last section when saying that representative sampling in both training and test sets combined with ERM is what we need to learn a model. Let me give you a very simple counterexample: a perfect memorizer.
 
 Suppose I construct a model which memorizes all the data points in the training set. Then its emprical risk is zero by definition, but it has no way of predicting anything on a test set. Thus it might as well choose the value at a new point randomly, and will perform very poorly. The process of interpolating a curve from points is precisely this memorization
 
@@ -239,7 +239,7 @@ Stochastic noise bedevils almost every data set known to humans, and happens for
 
 Consider for example two customers of a bank with identical credit histories and salaries. One defaults on their mortgage, and the other does not. In this case we have identical $x = (credit, salary)$ for these two customers, but different $y$, which is a variable that is 1 if the customer defaulted and 0 otherwise. The true $y$ here might be a function of other co-variates, such as marital strife, sickness of parents, etc. But, as the bank, we might not have this information. So we get different $y$ for different customers at the information $x$ that we possess.
 
-A similar thing might be happen in the election example, where we have modelled the probability of voting for romney as a function of religiousness of the county. There are many other variables we might not have measured, such as the majority race in that county.  But, we have not measured this information. Thus, in counties with high religiousness fraction $x$ we might have more noise than in others. Consider for example two counties, one with $x=0.8$ fraction of self-identified religious people in the county, and another with $x=0.82$. Based on historical trends, if the first county was mostly white, the fraction of those claiming they would vote for Romney might be larger than in a second, mostly black county. Thus you might have two very $y$'s next to each other on our graphs.
+A similar thing might be happen in the election example, where we have modelled the probability of voting for Romney as a function of religiousness of the county. There are many other variables we might not have measured, such as the majority race in that county.  But, we have not measured this information. Thus, in counties with high religiousness fraction $x$ we might have more noise than in others. Consider for example two counties, one with $x=0.8$ fraction of self-identified religious people in the county, and another with $x=0.82$. Based on historical trends, if the first county was mostly white, the fraction of those claiming they would vote for Romney might be larger than in a second, mostly black county. Thus you might have two very $y$'s next to each other on our graphs.
 
 It gets worse. When pollsters estimate the number of people voting for a particular candidate, they only use finite samples of voters. So there is a 4-6\% polling error in any of these estimates. This "sampling noise" adds to the noisiness of the $y$'s. 
 
@@ -512,7 +512,7 @@ for i,p in enumerate(polys1[:-1]):
 axes[0].plot(x,polys1[-1](x), alpha=0.05, c=c,label="$g_1$ from different samples")
 for i,p in enumerate(polys20[:-1]):
     axes[1].plot(x,p(x), alpha=0.05, c=c)
-axes[1].plot(x,polys20[-1](x), alpha=0.05, c=c, label="$g_{10}$ from different samples")
+axes[1].plot(x,polys20[-1](x), alpha=0.05, c=c, label="$g_{20}$ from different samples")
 axes[0].legend(loc=4);
 axes[1].legend(loc=4);
 ```
